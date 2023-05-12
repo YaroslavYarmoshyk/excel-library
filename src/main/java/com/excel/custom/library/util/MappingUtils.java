@@ -26,7 +26,7 @@ public final class MappingUtils {
                 default -> throw new SystemException("Cannot cast object " + obj + " to " + clazz);
             });
         } catch (Exception e) {
-            if (!obj.toString().equals("#NULL!")) {
+            if (!obj.toString().equals("#NULL!") && Strings.isNotBlank(obj.toString())) {
                 log.warn("Cannot cast {} to type {}", obj, clazz);
             }
             return null;
