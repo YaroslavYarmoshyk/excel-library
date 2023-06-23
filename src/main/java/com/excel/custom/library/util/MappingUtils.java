@@ -15,7 +15,8 @@ public final class MappingUtils {
 
     public static <T> T castToType(final Object obj, final Class<T> clazz) {
         try {
-            final String removedInappropriateCharacters = obj.toString().strip().replaceAll(" ", "");
+            final String removedInappropriateCharacters = obj.toString().strip()
+                    .replaceAll(" ", "");
             return clazz.cast(switch (clazz.getSimpleName()) {
                 case "Integer" -> Integer.valueOf(removedInappropriateCharacters);
                 case "Double" -> Double.valueOf(removedInappropriateCharacters);
